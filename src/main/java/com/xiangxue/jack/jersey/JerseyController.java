@@ -6,6 +6,9 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+/*
+* 可以接受http请求
+* */
 @Path("/jersey/")
 public class JerseyController {
 

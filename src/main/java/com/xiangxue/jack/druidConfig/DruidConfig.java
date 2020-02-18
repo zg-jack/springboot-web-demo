@@ -11,7 +11,6 @@ import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 
 import javax.sql.DataSource;
 import java.sql.SQLException;
@@ -21,7 +20,6 @@ import java.util.Map;
 @Data
 @Configuration
 @ConfigurationProperties(prefix = "spring.druid",ignoreInvalidFields = true)
-@PropertySource("classpath:/application.properties")
 public class DruidConfig {
 
     private String driverClassName;
@@ -43,10 +41,10 @@ public class DruidConfig {
     private String filters;
     private String connectionProperties;
 
-//    @Bean(destroyMethod = "close",initMethod = "init")
     //这里需要注意默认是读取的application.properties配置文件。
     //如果你的配置文件不在默认文件中。
     //需要在类中引入配置文件例如：@PropertySource(value = "classpath:druid.properties")
+    @Bean(destroyMethod = "close",initMethod = "init")
     public DataSource getDs1(){
         DruidDataSource druidDataSource = new DruidDataSource();
         druidDataSource.setDriverClassName(driverClassName);
@@ -103,7 +101,7 @@ public class DruidConfig {
         return druidDataSource;
     }
 
-    @Bean
+//    @Bean
     public DataSource dynamicDataSource() {
         Map<Object, Object> targetDataSources = new HashMap<>();
         DataSource ds1 = getDs1();

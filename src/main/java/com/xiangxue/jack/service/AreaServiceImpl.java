@@ -4,6 +4,7 @@ import com.xiangxue.jack.bean.ConsultConfigArea;
 import com.xiangxue.jack.dao.CommonMapper;
 import com.xiangxue.jack.dynamicDataSource.TargetDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,6 +21,9 @@ public class AreaServiceImpl implements AreaService {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
+    @Autowired
+    RedisTemplate redisTemplate;
+
     public List<ConsultConfigArea> qryAreaFromBase(Map param) {
         // TODO Auto-generated method stub
         return mapper.qryArea(param);
@@ -27,7 +31,8 @@ public class AreaServiceImpl implements AreaService {
 
     @TargetDataSource(name = "ds2")
     public List<ConsultConfigArea> qryArea(Map param) {
-        return mapper.qryArea(param);
+        List<ConsultConfigArea> consultConfigAreas = mapper.qryArea(param);
+        return consultConfigAreas;
     }
 
     @Transactional

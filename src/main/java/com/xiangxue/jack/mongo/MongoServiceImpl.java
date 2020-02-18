@@ -14,7 +14,9 @@ import java.util.regex.Pattern;
 
 @Service
 public class MongoServiceImpl implements MongoService<User> {
-
+    /*
+    * 这个实例是从哪里来的？？
+    * */
     @Autowired
     private MongoTemplate mongoTemplate;
 
@@ -42,6 +44,9 @@ public class MongoServiceImpl implements MongoService<User> {
         return mongoTemplate.findOne(query,User.class);
     }
 
+    /*
+    * update xx set() where xx =a
+    * */
     @Override
     public String updateE(User user) {
         Query query = new Query(Criteria.where("_id").is(user.getId()));

@@ -2,7 +2,6 @@ package com.xiangxue.jack.dynamicDataSource;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
 import org.springframework.core.env.Environment;
 
 import javax.annotation.Resource;
@@ -117,7 +116,7 @@ public class DataSourceConfiguration {
         return comboPooledDataSource;
     }
 
-    @Bean
+//    @Bean
     public DataSource dynamicDataSource() {
         Map<Object, Object> targetDataSources = new HashMap<>();
         ComboPooledDataSource ds1 = getDs1();

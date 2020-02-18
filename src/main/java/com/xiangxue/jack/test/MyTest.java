@@ -1,6 +1,8 @@
 package com.xiangxue.jack.test;
 
 import com.xiangxue.jack.bean.ConsultConfigArea;
+import com.xiangxue.jack.mongo.MongoService;
+import com.xiangxue.jack.mongo.User;
 import com.xiangxue.jack.service.AreaService;
 import com.xiangxue.jack.start.SpringbootTest;
 import org.junit.Test;
@@ -25,6 +27,9 @@ public class MyTest {
     @Autowired
     AreaService areaService;
 
+    @Autowired
+    MongoService mongoService;
+
     @Test
     public void test1() {
         List<ConsultConfigArea> areas = areaService.qryArea(new HashMap());
@@ -32,5 +37,14 @@ public class MyTest {
             logger.info(area.getAreaCode() + "   " + area.getAreaName() + "   "
                     + area.getState());
         }
+    }
+
+    @Test
+    public void mongoTest() {
+        User user = new User();
+        user.setUsername("jack");
+        user.setPassword("123");
+        user.setId("87");
+        mongoService.save(user);
     }
 }
