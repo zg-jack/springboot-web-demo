@@ -23,9 +23,9 @@ import java.util.Map;
 public class DruidConfig {
 
     private String driverClassName;
-    private String jdbcUrl;
     private String jdbcUrl1;
     private String username;
+    private String jdbcUrl;
     private String password;
     private int maxActive;
     private int minIdle;

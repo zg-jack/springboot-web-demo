@@ -11,12 +11,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ConfigFamliy {
 
-    @Bean("jack")
-    public People getPeople() {
-        Jack jack = new Jack();
-        jack.setUsername("jack");
-        return jack;
-    }
+
 
 
     /*
@@ -29,6 +24,13 @@ public class ConfigFamliy {
         jackFamliy.setPeople(people);
         people.toString();
         return jackFamliy;
+    }
+
+    @Bean("jack")
+    public People getPeople() {
+        Jack jack = new Jack();
+        jack.setUsername("jack");
+        return jack;
     }
 
     /*
@@ -83,7 +85,8 @@ public class ConfigFamliy {
 
     @Bean
     @Conditional(value = CustomCondition.class)
-    public void conditionalTest() {
+    public User conditionalTest() {
         System.out.println("======ConfigFamliy.conditionalTest");
+        return new User();
     }
 }

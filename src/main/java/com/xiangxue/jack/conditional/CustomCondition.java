@@ -11,9 +11,9 @@ public class CustomCondition implements Condition {
         String property = context.getEnvironment().getProperty("spring.redis.jedis.pool.max-active");
 
         if("8".equals(property)) {
-            return true;
-        } else {
             return false;
+        } else {
+            return true;
         }
     }
 }
