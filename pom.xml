@@ -26,7 +26,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
             <!--排除Tomcat启动器，如果用jetty需要排除，如果要打包(war)部署到服务器需要排除内置Tomcat -->
-                        <!--<exclusions>
+                <!--        <exclusions>
                             <exclusion>
                                 <groupId>org.springframework.boot</groupId>
                                 <artifactId>spring-boot-starter-tomcat</artifactId>
@@ -38,12 +38,12 @@
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
         <!-- 这个两个jar包是springboot支持jsp的jar -->
-        <dependency>
+<!--        <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
             <scope>provided</scope>
-            <!--<version>8.0.30</version>-->
-        </dependency>
+            &lt;!&ndash;<version>8.0.30</version>&ndash;&gt;
+        </dependency>-->
         <!--        <dependency>
                     <groupId>org.apache.tomcat.embed</groupId>
                     <artifactId>tomcat-embed-core</artifactId>
